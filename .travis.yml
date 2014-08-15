@@ -15,7 +15,7 @@ install:
   - "opam install lwt ounit"
   # Ypotryll isn't in opam yet, so get it from github.
   - "git clone https://github.com/jerith/ypotryll.git"
-  - "(cd ypotryll; make install)"
+  - "(cd ypotryll; make && make install)"
 
 script:
   - "make"
