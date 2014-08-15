@@ -108,6 +108,12 @@ module Transport_message = struct
       "routing_metadata", t.routing_metadata;
       "helper_metadata", t.helper_metadata;
     ]
+
+  let from_json_string str =
+    from_json (Yojson.Basic.from_string str)
+
+  let to_json_string t =
+    Yojson.Basic.to_string (to_json t)
 end
 
 
@@ -176,4 +182,13 @@ module Transport_user_message = struct
       "transport_metadata", t.transport_metadata;
       "group", string_or_null t.group;
     ]
+
+  let from_json_string str =
+    from_json (Yojson.Basic.from_string str)
+
+  let to_json_string t =
+    Yojson.Basic.to_string (to_json t)
+
+  let reply t content =
+    { t with to_addr = t.from_addr; from_addr = t.to_addr; content }
 end

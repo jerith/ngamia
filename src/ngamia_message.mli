@@ -24,6 +24,9 @@ module Transport_message : sig
 
   val from_json : Yojson.Basic.json -> t
   val to_json : t -> Yojson.Basic.json
+
+  val from_json_string : string -> t
+  val to_json_string : t -> string
 end
 
 
@@ -49,4 +52,10 @@ module Transport_user_message : sig
 
   val from_json : Yojson.Basic.json -> t
   val to_json : t -> Yojson.Basic.json
+
+  val from_json_string : string -> t
+  val to_json_string : t -> string
+
+  (* TODO: More parameters for this. *)
+  val reply : t -> string option -> t
 end
