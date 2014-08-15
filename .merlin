@@ -1,0 +1,10 @@
+PKG lwt lwt.unix lwt.syntax oUnit ypotryll yojson
+EXT lwt
+
+S src
+S test
+S example
+
+B _build/src
+B _build/test
+B _build/example

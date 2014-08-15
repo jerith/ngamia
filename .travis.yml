@@ -1,0 +1,22 @@
+language: c  # Not really, but Travis doesn't do OCaml.
+
+env:
+  - PPA="avsm/ocaml40+opam11" OPAMYES="1" CONFIGUREFLAGS="--enable-tests"
+  - PPA="avsm/ocaml41+opam11" OPAMYES="1" CONFIGUREFLAGS="--enable-tests"
+
+before_install:
+  - "echo 'yes' | sudo add-apt-repository ppa:$PPA"
+  - "sudo apt-get update -qq"
+  - "sudo apt-get install -qq ocaml ocaml-native-compilers camlp4-extra opam"
+  - "opam init"
+  - "eval `opam config env`"
+
+install:
+  - "opam install lwt ounit"
+  # Ypotryll isn't in opam yet, so get it from github.
+  - "git clone git@github.com:jerith/ypotryll.git"
+  - "(cd ypotryll; make install)"
+
+script:
+  - "make"
+  - "make test"

@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 932706e4b1ad4f60d85cf0bb03308660)
+version = "0.0.1"
+description = "OCaml vumi tools"
+requires = "lwt lwt.syntax ypotryll yojson"
+archive(byte) = "ngamia.cma"
+archive(byte, plugin) = "ngamia.cma"
+archive(native) = "ngamia.cmxa"
+archive(native, plugin) = "ngamia.cmxs"
+exists_if = "ngamia.cma"
+# OASIS_STOP
+
