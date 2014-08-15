@@ -14,7 +14,7 @@ before_install:
 install:
   - "opam install lwt ounit"
   # Ypotryll isn't in opam yet, so get it from github.
-  - "git clone git@github.com:jerith/ypotryll.git"
+  - "git clone https://github.com/jerith/ypotryll.git"
   - "(cd ypotryll; make install)"
 
 script:
