@@ -12,7 +12,7 @@ before_install:
   - "eval `opam config env`"
 
 install:
-  - "opam install lwt ounit"
+  - "opam install lwt ounit yojson"
   # Ypotryll isn't in opam yet, so get it from github.
   - "git clone https://github.com/jerith/ypotryll.git"
   - "pushd ypotryll"
